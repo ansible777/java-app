@@ -9,10 +9,5 @@ pipeline {
                 git credentialsId: 'ansible777', url: 'https://github.com/ansible777/java-app'
             }
         }
-        stage("Maven Build"){
-            steps{
-                sh "mvn clean package"
-            }
-        }
     }
 }
