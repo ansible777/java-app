@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: 'git', url: 'https://github.com/ansible777/java-app'
+                git credentialsId: 'git', url: 'https://github.com/ansible777/java-app.git'
             }
         }
     }
