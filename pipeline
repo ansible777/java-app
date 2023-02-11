@@ -1,13 +1,18 @@
 pipeline {
     agent any
-    environment{
-        PATH = "/usr/bin/git:$PATH"
-    }    
+    tools {
+        maven 'maven3'
+    }
     stages{
         stage("Git Checkout"){
             steps{
-                git branch: 'dev', credentialsId: 'git', url: 'https://github.com/ansible777/java-app.git'
+                git credentialsId: 'git', url: 'https://github.com/ansible777/java-app'
+            }
+        }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
             }
         }
     }
-}
+}        
